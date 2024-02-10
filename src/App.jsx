@@ -41,6 +41,7 @@ import OrderHistory from "./Components/OrderHistory/OrderHistory";
 import SideBar from "./Components/SideBar/SideBar";
 import Navbar from "./Components/NavBar/Navbar";
 import Table from "./Components/Table/Table";
+import Chat from "./Components/Chat/Chat";
 
 function App() {
   return (
@@ -48,15 +49,14 @@ function App() {
       {/* <SideBar /> */}
       <Navbar />
       <Routes>
-        {/* <Route element={<Home />} path="/" />
+        <Route element={<Home />} path="/" />
         <Route element={<Cards />} path="/cards" />
         <Route element={<Rider />} path="/rider" />
         <Route element={<Revenue />} path="/revenue" />
         <Route element={<Help />} path="/help" />
         <Route element={<HelpForm />} path="/hform" />
         <Route element={<AddMenu />} path="/menu" />
-        <Route element={<OrderHistory />} path="/orderhistory" /> */}
-        <Route element={<Help />} path="/help" />
+        <Route element={<OrderHistory />} path="/orderhistory" />
       </Routes>
     </>
   );

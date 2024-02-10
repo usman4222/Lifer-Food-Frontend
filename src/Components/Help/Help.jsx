@@ -5,16 +5,14 @@ import './Help.css'
 import { IoMdArrowDropdown } from "react-icons/io";
 import { BsThreeDots } from "react-icons/bs";
 import { IoMdPrint } from "react-icons/io";
+import Chat from '../Chat/Chat';
 
 const Help = () => {
 
     const [showOverlay, setShowOverlay] = useState(false);
-    const [agentInfo, setAgentInfo] = useState({ name: '', email: '', id: '' });
 
     const handleHelpB2Click = () => {
-        const agent = { username: 'Muhammad Irfan', email: 'Irfan@gmail.com', id: 'm.irfan 12' };
 
-        setAgentInfo(agent);
         setShowOverlay(true);
     };
 
@@ -108,7 +106,7 @@ const Help = () => {
             </div>
             {showOverlay && (
                 <div className='overlay' onClick={closeOverlay}>
-                    <div className='overlay-content'>
+                    {/* <div className='overlay-content'>
                         <div>
                             <h6>Name:</h6>
                             <p>{agentInfo.username}</p>
@@ -121,7 +119,7 @@ const Help = () => {
                             <h6>Skype ID:</h6>
                             <p>{agentInfo.id}</p>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             )}
         </Fragment>
