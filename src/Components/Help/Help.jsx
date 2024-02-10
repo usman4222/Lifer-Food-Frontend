@@ -2,6 +2,9 @@ import React, { Fragment, useState } from 'react'
 import help from '../../assets/help.png'
 import help1 from '../../assets/help1.png'
 import './Help.css'
+import { IoMdArrowDropdown } from "react-icons/io";
+import { BsThreeDots } from "react-icons/bs";
+import { IoMdPrint } from "react-icons/io";
 
 const Help = () => {
 
@@ -9,8 +12,6 @@ const Help = () => {
     const [agentInfo, setAgentInfo] = useState({ name: '', email: '', id: '' });
 
     const handleHelpB2Click = () => {
-        // Simulate fetching agent information (replace with your actual logic)
-        // For demonstration purposes, set default values.
         const agent = { username: 'Muhammad Irfan', email: 'Irfan@gmail.com', id: 'm.irfan 12' };
 
         setAgentInfo(agent);
@@ -19,6 +20,20 @@ const Help = () => {
 
     const closeOverlay = () => {
         setShowOverlay(false);
+    };
+
+    const [selectedRow, setSelectedRow] = useState(null);
+
+    const answer = [
+        { id: 1, answer: "Grilled Chicken Caesar Salad: Fresh twist with grilled chicken, crunchy croutons, and Parmesan on crisp romaine, drizzled with our signature Caesar dressing." },
+        { id: 2, answer: "Grilled Chicken Caesar Salad: Fresh twist with grilled chicken, crunchy croutons, and Parmesan on crisp romaine, drizzled with our signature Caesar dressing." },
+        { id: 3, answer: "Grilled Chicken Caesar Salad: Fresh twist with grilled chicken, crunchy croutons, and Parmesan on crisp romaine, drizzled with our signature Caesar dressing." },
+        { id: 4, answer: "Grilled Chicken Caesar Salad: Fresh twist with grilled chicken, crunchy croutons, and Parmesan on crisp romaine, drizzled with our signature Caesar dressing." },
+        { id: 5, answer: "Grilled Chicken Caesar Salad: Fresh twist with grilled chicken, crunchy croutons, and Parmesan on crisp romaine, drizzled with our signature Caesar dressing." },
+    ];
+
+    const handleRowClick = (id) => {
+        setSelectedRow(id === selectedRow ? null : id);
     };
 
     return (
@@ -54,18 +69,39 @@ const Help = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='row table'>
-                            <div className="bg-white shadow-xl py-2 rounded-xl md:w-[45%] w-full flex flex-col">
-                                <h1 className="text-2xl font-bold text-gray-600 pl-10">FAQS</h1>
-                                <ul className="pt-3 text-gray-600 w-full">
-                                    <li className="border-b border-gray-300 font-semibold text-lg pl-5">#4365</li>
-                                    <li className="border-b border-gray-300 font-semibold text-lg pl-5">#4365</li>
-                                    <li className="border-b border-gray-300 font-semibold text-lg pl-5">#4365</li>
-                                    <li className="border-b border-gray-300 font-semibold text-lg pl-5">#4365</li>
-                                    <li className="border-b border-gray-300 font-semibold text-lg pl-5">#4365</li>
-                                    <li className="border-b border-gray-300 font-semibold text-lg pl-5">#4365</li>
-                                </ul>
+                        <div className='tables flex justify-center align-center pt-5'>
+                            <div className='pt-3'>
+                                <div>
+                                    <h6 className='text-xl font-bold'>FAQS</h6>
+                                </div>
                             </div>
+                            <table className='row table w-full' style={{ width: 1000 }}>
+                                <tbody >
+                                    {answer.map((item) => (
+                                        <React.Fragment key={item.id}>
+                                            <tr className=" border-b">
+                                                <td className="px-4 py-2 " style={{ width: 1000 }}>How can I update my restaurant's menu?</td>
+                                                <td className="px-4 py-2">
+                                                    <IoMdArrowDropdown
+                                                        size={20}
+                                                        className="cursor-pointer border rounded-full"
+                                                        onClick={() => handleRowClick(item.id)}
+                                                    />
+                                                </td>
+                                            </tr>
+                                            {selectedRow === item.id && (
+                                                <tr>
+                                                    <td colSpan="10" className="p-10 " style={{ background: '#FFB100' }}>
+                                                        <table className="table-auto w-full">
+                                                            <td className="px-4 py-2">{item.answer}</td>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            )}
+                                        </React.Fragment>
+                                    ))}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
