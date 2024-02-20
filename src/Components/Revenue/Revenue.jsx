@@ -52,7 +52,7 @@ const Revenue = () => {
                                 <div className='col-lg-3'>
                                     <div className='revenue-last'>
                                         <div>
-                                            <div className='add-menu' style={{ background: '#A3BB98' }}>
+                                            <div className='add-menu ' style={{ background: '#A3BB98' }}>
                                                 <div className='add-menu-r1'>
                                                     <div className=' add-menu-b1'>
                                                         <h6>Add to Today's Revenue through this button</h6>

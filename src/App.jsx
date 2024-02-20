@@ -42,12 +42,16 @@ import SideBar from "./Components/SideBar/SideBar";
 import Navbar from "./Components/NavBar/Navbar";
 import Table from "./Components/Table/Table";
 import Chat from "./Components/Chat/Chat";
+import Login from "./Pages/Login";
+import Form from "./Components/Login/Form";
+import Overlay from "./Components/Login/Overlay";
+import SignUp from "./Pages/SignUp";
 
 function App() {
   return (
     <>
-      {/* <SideBar /> */}
-      <Navbar />
+      {/* <SideBar />
+      <Navbar /> */}
       <Routes>
         <Route element={<Home />} path="/" />
         <Route element={<Cards />} path="/cards" />
@@ -57,6 +61,8 @@ function App() {
         <Route element={<HelpForm />} path="/hform" />
         <Route element={<AddMenu />} path="/menu" />
         <Route element={<OrderHistory />} path="/orderhistory" />
+        <Route element={<Login />} path="/login" />
+        <Route element={<SignUp />} path="/sign-up" />
       </Routes>
     </>
   );
